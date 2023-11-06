@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package UserSignupPackage;
+
+service OtpSignup {
+  rpc SendOTP (SignupByOtp) returns (OtpMsg) {}
+}
+
+message SignupByOtp {
+  int32 OTP = 1;
+  string emailAddress=2;
+}
+
+message OtpMsg {
+  string msg = 1;
+}
