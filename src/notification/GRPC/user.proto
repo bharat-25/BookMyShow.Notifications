@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package UserSignupPackage;
+
+service OtpSignup {
+  rpc SendOTP(SignupByOtp) returns (OtpMsg) {};
+  rpc SendEmail(SendUsersEmail) returns (EmailMsg) {};
+  rpc receiveEmails(Empty) returns (emailAddress) {};
+}
+
+message Empty{
+}
+
+message SignupByOtp {
+  int32 OTP = 1;
+  string emailAddress=2;
+}
+
+message OtpMsg {
+  string msg = 1;
+}
+
+message SendUsersEmail{
+  repeated string emailAddress=1;
+}
+
+message EmailMsg{
+  string NotificationMsg=1;
+}
+
+message emailAddress{
+  repeated  string emailAddress=1;
+}
