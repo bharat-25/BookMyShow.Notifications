@@ -12,5 +12,6 @@ export interface OtpMsg{
 export interface OtpSignup{
     sendOTP(data: {OTP: number,emailAddress:string }): Observable<any>
     sendEmail(data:{emailAddress: string[]}):  Observable<any>;
+    receiveEmails():Observable<any>;
 
 }

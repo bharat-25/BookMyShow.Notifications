@@ -5,6 +5,10 @@ package UserSignupPackage;
 service OtpSignup {
   rpc SendOTP(SignupByOtp) returns (OtpMsg) {};
   rpc SendEmail(SendUsersEmail) returns (EmailMsg) {};
+  rpc receiveEmails(Empty) returns (emailAddress) {};
+}
+
+message Empty{
 }
 
 message SignupByOtp {
@@ -22,4 +26,8 @@ message SendUsersEmail{
 
 message EmailMsg{
   string NotificationMsg=1;
+}
+
+message emailAddress{
+  repeated  string emailAddress=1;
 }
