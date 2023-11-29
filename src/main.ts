@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
+import { config } from './config/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -29,7 +30,8 @@ async function bootstrap() {
     },
   });
   
-  ConfigModule.forRoot(),
+  // ConfigModule.forRoot(),
+  console.log("config tes",config.PORT)
   app.useGlobalPipes(new ValidationPipe());
   await app.startAllMicroservices();
   await app.listen(3009);
@@ -77,25 +79,6 @@ bootstrap();
 //       },
 //     },
 //   );
-//   // {
-//   //   type: Transport.KAFKA,
-//   //   options: {
-//   //     client: {
-//   //       brokers: ['localhost:9092'],
-//   //     },
-//   //     consumer: {
-//   //       groupId: 'user-consumer',
-//   //     },
-//   //   },
-//   // },
-
-//   // const server = new KafkaServer({
-//   //   client: 'localhost:9092',
-//   //   options: {
-//   //     groupId: 'user-consumer',
-//   //     // id: "kafka-server",
-//   //   },
-//   // });
 
 //   app.useGlobalPipes(new ValidationPipe());
 //   await app.listen();

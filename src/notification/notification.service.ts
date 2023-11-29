@@ -6,6 +6,7 @@ import path, { join } from 'path';
 import axios from 'axios';
 import * as fs from 'fs';
 import { EMAIL } from './constant/constant';
+import { config } from 'src/config/config';
 @Injectable()
 export class OtpSignupService {
   private transporter: nodemailer.Transporter;
@@ -16,8 +17,8 @@ export class OtpSignupService {
     this.transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'bharatannd2000@gmail.com',
-        pass: 'amfosrpkxlhzzuaz',
+        user: config.SMTP.AUTH_EMAIL,
+        pass: config.SMTP.AUTH_PASSWORD,
       },
     });
   }
